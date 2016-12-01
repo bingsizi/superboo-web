@@ -1,0 +1,17 @@
+1.............................hibernate不生成表的原因
+今天初学Hibernate4，了解了使用Hibernate的过程。大体分为4个步骤： 
+①创建hibernate.cfg.xml文件 
+②创建持久化对象 
+③创建*.hbm.xml映射文件 
+④编写hibernate相应代码 
+在第四步中，进行了单元测试，测试预期结果是hibernate自动帮助在数据库中创建数据表，结果JUnit单元测试没有问题，在控制台打印了创建数据表的SQL语句，但在数据库中输入show tables;查找时却没有找到数据表，在网上搜索了好久，最后终于解决。原来是hibernate.xml配置文件的数据库方言有问题。 
+之前我的配置是： 
+<property name="dialect"> 
+    org.hibernate.dialect.MySQLInnoDBDialect 
+</property> 
+现在改为： 
+<property name="dialect"> 
+    org.hibernate.dialect.MySQL5InnoDBDialect 
+</property> 
+OK,问题解决了。 
+总结：Using 'MySQL5InnoDBDialect' works with 5.1 and 5.5.
