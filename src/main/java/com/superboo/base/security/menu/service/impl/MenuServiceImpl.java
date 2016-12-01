@@ -54,19 +54,19 @@ public class MenuServiceImpl implements MenuService {
 		menuDao.save(menu);
 	}
 
-	@Transactional(readOnly = false)
+	@Transactional(readOnly = true)
 	@Override
 	public Menu find(Long id) {
 		return menuDao.findById(id);
 	}
 
-	@Transactional(readOnly = false)
+	@Transactional(readOnly = true)
 	@Override
 	public boolean isUsed(Long id) {
 		return roleMenuService.isMenuUsed(id);
 	}
 
-	@Transactional(readOnly = false)
+	@Transactional(readOnly = true)
 	@Override
 	public List<Menu> findChilds(Long id) {
 		Map<String, Object> paramMap = new HashMap<>();
@@ -74,14 +74,14 @@ public class MenuServiceImpl implements MenuService {
 		return menuDao.executeQuery("from Menu where parentId=:parentId order by seq", paramMap);
 	}
 
-	@Transactional(readOnly = false)
+	@Transactional(readOnly = true)
 	@Override
 	public List<Menu> findRootMenus() {
 		String queryString = "from Menu where parentId is null or parentId='' order by seq";
 		return menuDao.executeQuery(queryString, new HashMap<String, Object>());
 	}
 
-	@Transactional(readOnly = false)
+	@Transactional(readOnly = true)
 	@Override
 	public Page<Menu> findByPage(Page<Menu> page, String name) {
 		Map<String, Object> paramMap = new HashMap<>();
@@ -108,13 +108,13 @@ public class MenuServiceImpl implements MenuService {
 		}
 	}
 
-	@Transactional(readOnly = false)
+	@Transactional(readOnly = true)
 	@Override
 	public List<Menu> findByIds(Long... ids) {
 		return menuDao.executeQuery(Restrictions.in("id", ids));
 	}
 
-	@Transactional(readOnly = false)
+	@Transactional(readOnly = true)
 	@Override
 	public Long[] findMenuIds(Long... roleIds) {
 
@@ -140,13 +140,13 @@ public class MenuServiceImpl implements MenuService {
 		return menuIds;
 	}
 
-	@Transactional(readOnly = false)
+	@Transactional(readOnly = true)
 	@Override
 	public long countNum() {
 		return menuDao.countResult("from Menu", new HashMap<>());
 	}
 
-	@Transactional(readOnly = false)
+	@Transactional(readOnly = true)
 	@Override
 	public List<Tree> findTreeMenus() {
 		List<Tree> treeList = new ArrayList<Tree>();
@@ -190,7 +190,7 @@ public class MenuServiceImpl implements MenuService {
 		return menu;
 	}
 
-	@Transactional(readOnly = false)
+	@Transactional(readOnly = true)
 	@Override
 	public void remove(Long id) {
 		menuDao.deleteById(id);

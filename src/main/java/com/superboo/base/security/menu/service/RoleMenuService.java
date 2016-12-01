@@ -36,4 +36,13 @@ public interface RoleMenuService {
 	 * @date 2016年11月30日
 	 */
 	List<RoleMenu> findByRoleIds(Long[] roleIds);
+	
+	/**
+	 * 根据角色删除对应的角色菜单
+	 * @param roleId
+	 * @return
+	 * @author peiran zhang
+	 * @date 2016年12月1日
+	 */
+	int removeByRoleId(Long roleId);
 }

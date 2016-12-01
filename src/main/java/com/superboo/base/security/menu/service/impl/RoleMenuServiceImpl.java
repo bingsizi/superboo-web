@@ -1,6 +1,8 @@
 package com.superboo.base.security.menu.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import org.hibernate.criterion.Restrictions;
@@ -30,7 +32,7 @@ public class RoleMenuServiceImpl implements RoleMenuService{
 	 * @return
 	 * @author zhangpeiran 2016年5月11日 上午9:49:37
 	 */
-	@Transactional(readOnly = false)
+	@Transactional(readOnly = true)
 	@Override
 	public boolean isMenuUsed(Long menuId){
 		int count = roleMenuDao.countResult(roleMenuDao.createCriteria(Restrictions.eq("menuId", menuId)));
@@ -45,5 +47,14 @@ public class RoleMenuServiceImpl implements RoleMenuService{
 	@Override
 	public List<RoleMenu> findByRoleIds(Long[] roleIds) {
 		return roleMenuDao.executeQuery(Restrictions.in("roleId", roleIds));
+	}
+
+	@Override
+	public int removeByRoleId(Long roleId) {
+		
+		Map<String,Object> map = new HashMap<>();
+		map.put("roleId", roleId);
+		
+		return roleMenuDao.executeUpdate("delete from RoleMenu where roleId = :roleId", map);
 	}
 }
