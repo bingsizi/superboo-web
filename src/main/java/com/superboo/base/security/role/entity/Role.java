@@ -1,5 +1,6 @@
 package com.superboo.base.security.role.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import com.superboo.core.basemoudel.entity.IdEntity;
@@ -15,6 +16,7 @@ import com.superboo.core.basemoudel.entity.IdEntity;
 @Table(name = "sys_role")
 public class Role extends IdEntity {
 	private String name;// 角色名称
+	@Column(unique = true)
 	private String code;// 角色code码,请用英文.用以放入到权限中
 	private String description;// 角色描述
 

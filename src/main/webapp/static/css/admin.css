@@ -43,6 +43,11 @@
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
+
+.textarea{
+	height: inherit;
+}
+
 .btn {
     display: inline-block;
     padding: 6px 12px;
