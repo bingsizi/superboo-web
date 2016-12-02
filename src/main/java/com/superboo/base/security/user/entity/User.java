@@ -8,7 +8,10 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.superboo.core.basemoudel.entity.IdEntity;
+import com.superboo.core.json.JsonDateSerializer;
 
 /**
  * user用户类
@@ -19,16 +22,17 @@ import com.superboo.core.basemoudel.entity.IdEntity;
  */
 @Entity
 @Table(name = "sys_user")
-public class User extends IdEntity{
+public class User extends IdEntity {
 
 	/** 必要属性 **/
 	private String username;// 用户名
 	private String password;// 密码
-	private int locked = 0;//0未锁定,1锁定
+	private int locked = 0;// 0未锁定,1锁定
+	@JsonSerialize(using = JsonDateSerializer.class)
 	private Date createTime;// 创建时间
 	private String realName;// 真实姓名
 	private Long orgId;// 所属机构Id
-	private Date lastLoginTime;//最后一次登录时间
+	private Date lastLoginTime;// 最后一次登录时间
 
 	/** 非持久化 **/
 	@Transient
@@ -83,7 +87,6 @@ public class User extends IdEntity{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 
 	public int getLocked() {
 		return locked;
@@ -92,7 +95,7 @@ public class User extends IdEntity{
 	public void setLocked(int locked) {
 		this.locked = locked;
 	}
-	
+
 	public Date getLastLoginTime() {
 		return lastLoginTime;
 	}
@@ -102,9 +105,9 @@ public class User extends IdEntity{
 	}
 
 	public static void main(String[] args) throws Exception {
-		
-		//测试结果User类本身能序列化,但是在别的类中被ManyToOne的时候就无法序列化,可能和hibernate的懒加载有关系
-		
+
+		// 测试结果User类本身能序列化,但是在别的类中被ManyToOne的时候就无法序列化,可能和hibernate的懒加载有关系
+
 		User user = new User();
 		user.setRealName("我来测试");
 

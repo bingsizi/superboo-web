@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import com.superboo.base.security.menu.service.MenuService;
 import com.superboo.base.security.org.service.OrgService;
 import com.superboo.base.security.role.service.RoleService;
+import com.superboo.base.security.user.service.UserService;
 
 /**  
  * 业务接口管理类
@@ -22,4 +23,7 @@ public class ServiceManager {
 	
 	@Resource
 	public OrgService orgService;
+	
+	@Resource
+	public UserService userService;
 }
