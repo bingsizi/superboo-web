@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <%@ include file="/common/jqueryEasyUi.jsp"%>
-<script type="text/javascript" src="${ctx}/static/superJs/superJs.1.0.js"></script>
-<script type="text/javascript" src="${ctx}/model/admin/main.js"></script>
+<script type="text/javascript" src="${ctx}/static/script/superJs.1.0.js"></script>
+<script type="text/javascript" src="${ctx}/static/model/admin/main.js"></script>
 <title>首页</title>
 <script>
 $(function(){

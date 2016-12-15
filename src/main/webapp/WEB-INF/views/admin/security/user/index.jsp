@@ -5,8 +5,9 @@
 <meta charset="UTF-8">
 <%@ include file="/common/base.jsp"%>
 <%@ include file="/common/jqueryEasyUi.jsp"%>
-<%@ include file="/common/superFramework.jsp"%>
-<script type="text/javascript" src="${ctx}/model/security/user/user.js"></script>
+<script type="text/javascript" src="${ctx}/static/script/superJs.1.0.js"></script>
+<script type="text/javascript" src="${ctx}/static/script/widget/popbox.js"></script>
+<script type="text/javascript" src="${ctx}/static/model/admin/security/user/user.js"></script>
 <title>用户管理</title>
 </head>
 <body class="easyui-layout">

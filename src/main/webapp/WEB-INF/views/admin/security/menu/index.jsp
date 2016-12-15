@@ -5,8 +5,9 @@
 <meta charset="UTF-8">
 <%@ include file="/common/base.jsp"%>
 <%@ include file="/common/jqueryEasyUi.jsp"%>
-<%@ include file="/common/superFramework.jsp"%>
-<script type="text/javascript" src="${ctx}/model/security/menu/menu.js"></script>
+<script type="text/javascript" src="${ctx}/static/script/superJs.1.0.js"></script>
+<script type="text/javascript" src="${ctx}/static/script/widget/popbox.js"></script>
+<script type="text/javascript" src="${ctx}/static/model/admin/security/menu/menu.js"></script>
 <title>菜单管理</title>
 </head>
 <body style="margin: 0px;">
